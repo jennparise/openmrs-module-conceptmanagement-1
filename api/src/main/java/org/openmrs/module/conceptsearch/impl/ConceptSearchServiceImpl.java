@@ -22,13 +22,10 @@ import org.openmrs.Concept;
 import org.openmrs.ConceptClass;
 import org.openmrs.ConceptDatatype;
 import org.openmrs.ConceptNameTag;
-import org.openmrs.Drug;
-import org.openmrs.annotation.Authorized;
 import org.openmrs.api.APIException;
 import org.openmrs.module.conceptsearch.ConceptSearch;
 import org.openmrs.module.conceptsearch.ConceptSearchDAO;
 import org.openmrs.module.conceptsearch.ConceptSearchService;
-import org.openmrs.util.OpenmrsConstants;
 
 /**
  * Implementation of the ConceptSearchService
@@ -148,22 +145,6 @@ public class ConceptSearchServiceImpl implements ConceptSearchService {
 	@Override
 	public void purgeConceptNameTag(ConceptNameTag nameTag) {
 		dao.purgeConceptNameTag(nameTag);
-	}
-	
-	/**
-	 * @see org.openmrs.api.ConceptSearchService#retireNameTag(org.openmrs.ConceptNameTag,
-	 *      java.lang.String)
-	 * @throws APIException
-	 */
-	public ConceptNameTag retireNameTag(ConceptNameTag nameTag, String reason) throws APIException {
-		return dao.saveConceptNameTag(nameTag);
-	}
-	
-	/**
-	 * @see org.openmrs.api.ConceptSearchService#ConceptNameTag(org.openmrs.ConceptNameTag)
-	 */
-	public ConceptNameTag unretireNameTag(ConceptNameTag nameTag) throws APIException {
-		return dao.saveConceptNameTag(nameTag);
 	}
 	
 }
